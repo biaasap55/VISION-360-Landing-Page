@@ -1,0 +1,8 @@
+{
+  "name": "vision360-landing",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && npx serve dist"
+  }
+}
