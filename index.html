@@ -593,9 +593,12 @@
     .rd-dot{display:none}
     .rd-head{margin-top:clamp(28px,4vw,44px);margin-bottom:22px}
     .rd-div{margin-bottom:22px}
-    .rd-item,.rd-item.left,.rd-item.right{width:100%;left:0;padding:0;margin-top:5px}
+    .road{position:relative}
+    .road::before{content:"";position:absolute;left:7px;top:14px;bottom:14px;width:2px;background:rgba(253,217,58,.4);z-index:0}
+    .rd-item,.rd-item.left,.rd-item.right{width:100%;left:0;padding:0 0 0 34px;margin-top:12px;position:relative}
     .rd-item:first-child{margin-top:0}
-    .rd-card{flex-direction:row;align-items:flex-start;gap:11px;padding:10px 13px;border-radius:13px;box-shadow:0 4px 13px rgba(0,0,0,.18)}
+    .rd-item::before{content:"";position:absolute;left:1px;top:16px;width:14px;height:14px;border-radius:50%;background:var(--black);border:3px solid var(--yellow);z-index:2}
+    .rd-card{flex-direction:row;align-items:flex-start;gap:11px;padding:11px 13px;border-radius:13px;box-shadow:0 4px 13px rgba(0,0,0,.18);opacity:1;transform:none}
     .rd-ic{width:34px;height:34px;border-radius:9px}
     .rd-ic svg{width:18px;height:18px}
     .rd-num{font-size:12px}
