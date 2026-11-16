@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="UTF-8" />
@@ -597,8 +597,8 @@
     .road::before{content:"";position:absolute;left:7px;top:16px;bottom:16px;width:2px;background:rgba(253,217,58,.3);z-index:0}
     .rd-item,.rd-item.left,.rd-item.right{width:100%;left:0;padding:0 0 0 36px;margin-top:14px;position:relative}
     .rd-item:first-child{margin-top:0}
-    .rd-item::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;border-radius:50%;background:var(--black);border:3px solid rgba(253,217,58,.45);z-index:2;transition:border-color .45s ease}
-    .rd-item.active::before{border-color:var(--yellow)}
+    .rd-item::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:var(--black);border:3px solid rgba(253,217,58,.28);z-index:2;transition:border-color .45s ease,background .45s ease}
+    .rd-item.active::before{border-color:var(--yellow);background:var(--yellow)}
     .rd-card{flex-direction:row;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:14px;box-shadow:0 5px 16px rgba(0,0,0,.2)}
     .rd-ic{width:38px;height:38px;border-radius:10px}
     .rd-ic svg{width:20px;height:20px}
@@ -1146,9 +1146,10 @@
       var f = reduce ? 1 : Math.min(Math.max((mid - r.top)/r.height, 0), 1);
       var off = rLen*(1-f);
       rGlow.style.strokeDashoffset = off; rProg.style.strokeDashoffset = off;
+      var actMid = window.innerWidth <= 760 ? window.innerHeight*0.86 : mid;
       rItems.forEach(function(it){
         var top = it.getBoundingClientRect().top;
-        it.classList.toggle('active', reduce || top + 40 < mid);
+        it.classList.toggle('active', reduce || top + 40 < actMid);
       });
     }
     function rBuild(){
