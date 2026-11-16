@@ -580,7 +580,8 @@
   .rd-item.right .rd-dot::before{left:calc(100% + 3px)}
   .rd-item.active .rd-dot{border-color:var(--yellow)}
   .rd-item.active .rd-dot::before{background:var(--yellow)}
-  .services-cta{margin-top:clamp(48px,6vw,72px);display:flex;justify-content:center}
+  .services-cta{margin-top:clamp(48px,6vw,72px);display:flex;justify-content:center;opacity:.35;transform:translateY(14px) scale(.98);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+  .services-cta.active{opacity:1;transform:none}
   @media(max-width:900px){
     .hero-count{justify-self:start;max-width:none;margin-top:44px;display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:end}
     .hc-num{font-size:clamp(64px,17vw,96px)}
@@ -761,7 +762,7 @@
         </div>
       </div>
     </div>
-    <div class="services-cta reveal">
+    <div class="services-cta" id="rdCta">
       <a href="#contact" class="btn btn-primary">Solicită o discuție de clarificare <span class="arr">→</span></a>
     </div>
   </div>
@@ -1136,7 +1137,8 @@
   /* Roadmap: wavy line + scroll progress */
   var road = document.getElementById('road');
   if(road){
-    var rsvg = road.querySelector('.rd-svg'),
+    var rdCta = document.getElementById('rdCta'),
+        rsvg = road.querySelector('.rd-svg'),
         rPaths = road.querySelectorAll('.rd-svg path'),
         rGlow = road.querySelector('.rd-glow'), rProg = road.querySelector('.rd-prog'),
         rItems = Array.prototype.slice.call(road.querySelectorAll('.rd-item')), rLen = 0;
@@ -1151,6 +1153,7 @@
         var top = it.getBoundingClientRect().top;
         it.classList.toggle('active', reduce || top + 40 < actMid);
       });
+      if(rdCta){ var ct = rdCta.getBoundingClientRect().top; rdCta.classList.toggle('active', reduce || ct + 40 < actMid); }
     }
     function rBuild(){
       var w = road.clientWidth, h = road.clientHeight;
