@@ -597,7 +597,7 @@
     :root{--section-y:56px}
     .hero{min-height:100svh;padding-top:88px;padding-bottom:36px;display:block}
     .hero-grid{display:flex;flex-direction:column;gap:0}
-    .hero-main{min-height:calc(100svh - 88px - 36px - 75px);display:flex;flex-direction:column;justify-content:center;gap:0}
+    .hero-main{min-height:calc(100svh - 88px - 36px - 118px);display:flex;flex-direction:column;justify-content:center;gap:0}
     .hero h1{font-size:clamp(38px,9.4vw,60px);line-height:1.1}
     .hero-sub{margin-top:40px;font-size:16.5px}
     .hero-cta{margin-top:48px;flex-direction:column;align-items:stretch}
@@ -955,8 +955,8 @@
       <form id="leadForm" novalidate>
         <div class="fc-top">
           <span class="t">Programează o discuție</span>
-          <span class="demo-tag">Demo</span>
         </div>
+        <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <div class="field" id="f-name">
           <label for="nume">Nume și prenume</label>
           <input type="text" id="nume" name="nume" autocomplete="name" placeholder="Numele tău" />
@@ -973,7 +973,7 @@
           <span class="msg">Spune-ne câteva cuvinte despre afacerea ta.</span>
         </div>
         <button type="submit" class="btn btn-primary">Trimite solicitarea <span class="arr">→</span></button>
-        <p class="form-note">Formular demonstrativ — încă nu este conectat un sistem de programare.</p>
+        <p class="form-note" id="formError" style="display:none;color:#c0392b"></p>
       </form>
       <div class="form-success" id="formSuccess">
         <div class="chk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1D1D1D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -1331,10 +1331,20 @@
   });
 
   /* Form validation (demo) */
+  /* ===== Supabase config — completează cu valorile tale ===== */
+  var SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  var SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
+  /* ========================================================== */
+
   var form = document.getElementById('leadForm'), success = document.getElementById('formSuccess');
+  var errBox = document.getElementById('formError');
+  var submitBtn = form.querySelector('button[type="submit"]');
   function setErr(id, on){ document.getElementById(id).classList.toggle('err', on); }
+  function showError(msg){ errBox.textContent = msg; errBox.style.display = 'block'; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    errBox.style.display = 'none';
+    if(form.website.value){ return; } /* honeypot: bot detectat, ignoră */
     var nume = form.nume.value.trim(),
         email = form.email.value.trim(),
         biz = form.biz.value.trim(),
@@ -1344,7 +1354,38 @@
     setErr('f-email', !eok); if(!eok) ok=false;
     setErr('f-biz', !biz); if(!biz) ok=false;
     if(!ok) return;
-    form.style.display='none'; success.classList.add('show');
+
+    var btnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true; submitBtn.innerHTML = 'Se trimite…';
+
+    fetch(SUPABASE_URL + '/rest/v1/leads', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        nume: nume,
+        email: email,
+        descriere_afacere: biz,
+        source: 'landing_vision360',
+        user_agent: navigator.userAgent
+      })
+    })
+    .then(function(res){
+      if(res.ok){
+        form.style.display='none'; success.classList.add('show');
+      } else {
+        submitBtn.disabled = false; submitBtn.innerHTML = btnHTML;
+        showError('A apărut o eroare la trimitere. Te rugăm să încerci din nou.');
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false; submitBtn.innerHTML = btnHTML;
+      showError('Conexiune eșuată. Verifică internetul și încearcă din nou.');
+    });
   });
   ['nume','email','biz'].forEach(function(id){
     form[id].addEventListener('input', function(){
