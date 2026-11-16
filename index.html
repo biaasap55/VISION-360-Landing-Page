@@ -122,7 +122,7 @@
   /* ---------- HERO ---------- */
   .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding-top:100px;padding-bottom:10px;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;width:100%}
-  .hero h1{font-size:clamp(44px,7vw,70px);line-height:1.06;color:var(--black);max-width:none}
+  .hero h1{font-size:clamp(44px,7vw,70px);line-height:1.14;color:var(--black);max-width:none}
   .hero h1 .ln{display:block}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px}
   .hero-eyebrow .pill{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--graphite);border:1px solid var(--line);padding:7px 14px;border-radius:40px;background:rgba(255,255,255,.4)}
@@ -132,6 +132,7 @@
   .hero-proof .hp-star{width:36px;height:36px;flex:none;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--black)}
   .hero-proof .hp-star svg{width:17px;height:17px}
   .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero-cta .btn{padding:20px 30px}
   .hero-aside{position:relative}
   .hero h1 .hero-it{font-size:1.14em;color:var(--black);font-weight:400;letter-spacing:-.005em;line-height:1}
   .hero-stat{border-left:2px solid var(--yellow);padding:4px 0 4px 20px;margin-bottom:30px}
@@ -347,9 +348,8 @@
   .ethic h2 .underline-y svg{left:50%;transform:translateX(-50%)}
   .ethic-lead{font-size:clamp(18px,1.9vw,22px);font-weight:600;line-height:1.45;color:var(--black);max-width:620px;margin:clamp(22px,3vw,30px) auto 0}
   /* hero quote */
-  .ethic-quote{margin:clamp(44px,6vw,72px) auto clamp(18px,2.4vw,26px);max-width:800px;position:relative}
+  .ethic-quote{margin:clamp(22px,3vw,36px) auto clamp(18px,2.4vw,26px);max-width:800px;position:relative}
   .ethic-quote blockquote{font-family:var(--font-serif);font-style:italic;font-size:clamp(28px,4vw,46px);line-height:1.2;color:var(--black);margin:0}
-  .ethic-quote::before{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--yellow);margin:0 auto 26px}
   .ethic-qsub{font-size:clamp(15.5px,1.6vw,17.5px);color:var(--graphite);line-height:1.55;max-width:560px;margin:0 auto}
   /* inline points */
   .ethic-points{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);margin:clamp(48px,6vw,76px) auto 0;max-width:780px;text-align:left}
@@ -366,7 +366,8 @@
   @media(max-width:720px){.ethic-points{grid-template-columns:1fr;gap:26px}}
 
   /* ---------- PROMISE ---------- */
-  .promise{text-align:center;padding-top:clamp(36px,4vw,60px);padding-bottom:clamp(64px,8vw,110px)}
+  .faq{padding-bottom:clamp(24px,3vw,40px)}
+  .promise{text-align:center;padding-top:clamp(14px,2vw,26px);padding-bottom:clamp(64px,8vw,110px)}
   .promise .label{display:block;margin-bottom:24px}
   .promise-txt{font-size:clamp(22px,2.8vw,34px);line-height:1.4;font-weight:500;letter-spacing:-.01em;color:var(--black);max-width:34ch;margin:0 auto}
   .promise-txt .serif-it{font-size:1.12em;font-weight:400}
@@ -664,7 +665,7 @@
         <span class="ln">printr-un</span>
         <span class="ln"><span class="underline-y serif-it hero-it" id="heroUnderline">marketing etic.<svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M4 13 C 90 4, 200 4, 396 11"/></svg></span></span>
       </h1>
-      <p class="hero-sub reveal d2">La VISION 360, misiunea noastră este <em>să multiplicăm binele</em>, susținând antreprenorii care oferă servicii de calitate să ajungă la clienții potriviți și să crească sustenabil, prin strategii integrate de business, marketing și vânzări etice, construite în jurul oamenilor.</p>
+      <p class="hero-sub reveal d2">Prin VISION 360 susținem antreprenorii care oferă servicii de calitate să ajungă la clienții potriviți, prin strategii integrate de business, marketing și vânzări etice, <em>construite în jurul oamenilor</em>.</p>
       <div class="hero-cta reveal d3">
         <a href="#contact" class="btn btn-primary">Descoperă oferta personalizată <span class="arr">↗</span></a>
       </div>
@@ -1332,8 +1333,8 @@
 
   /* Form validation (demo) */
   /* ===== Supabase config — completează cu valorile tale ===== */
-  var SUPABASE_URL = "https://wdqshshgzoamykgfwccd.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_EphFcPK8JXb2uYkeXRCLpg_re3ij1HM";
+  var SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  var SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
   /* ========================================================== */
 
   var form = document.getElementById('leadForm'), success = document.getElementById('formSuccess');
