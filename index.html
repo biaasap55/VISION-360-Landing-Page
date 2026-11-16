@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="UTF-8" />
@@ -589,6 +589,22 @@
     .services-head{grid-template-columns:1fr;gap:22px}
   }
   @media(max-width:760px){
+    .rd-svg{display:none}
+    .rd-dot{display:none}
+    .rd-head{margin-top:clamp(28px,4vw,44px);margin-bottom:22px}
+    .rd-div{margin-bottom:22px}
+    .road{position:relative}
+    .road::before{content:"";position:absolute;left:7px;top:16px;bottom:16px;width:2px;background:rgba(253,217,58,.3);z-index:0}
+    .rd-item,.rd-item.left,.rd-item.right{width:100%;left:0;padding:0 0 0 36px;margin-top:14px;position:relative}
+    .rd-item:first-child{margin-top:0}
+    .rd-item::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;border-radius:50%;background:var(--black);border:3px solid rgba(253,217,58,.45);z-index:2;transition:border-color .45s ease}
+    .rd-item.active::before{border-color:var(--yellow)}
+    .rd-card{flex-direction:row;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:14px;box-shadow:0 5px 16px rgba(0,0,0,.2)}
+    .rd-ic{width:38px;height:38px;border-radius:10px}
+    .rd-ic svg{width:20px;height:20px}
+    .rd-num{font-size:13px}
+    .rd-card h3{font-size:15.5px;margin:2px 0 4px}
+    .rd-card p{font-size:13px;line-height:1.45}
     .services-cta .btn{width:100%;justify-content:center;white-space:normal}
   }
   @media(max-width:420px){ .hr-num{font-size:34px} .hr-txt{font-size:14px} }
