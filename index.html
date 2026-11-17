@@ -479,26 +479,6 @@
   .final h2{font-family:var(--font-display);font-size:clamp(34px,5.6vw,62px);line-height:.98;margin-top:20px}
   .final h2 .serif-it{color:var(--yellow)}
   .final-sub{margin-top:26px;font-size:clamp(17px,2vw,20px);color:#cfc9bf;max-width:46ch}
-  .form-card{background:var(--ivory);color:var(--black);border-radius:14px;padding:clamp(26px,3.5vw,40px)}
-  .form-card .fc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-  .form-card .fc-top .t{font-weight:700;font-size:18px}
-  .demo-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--graphite);background:var(--yellow);padding:5px 9px;border-radius:5px}
-  .field{margin-bottom:18px}
-  .field label{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
-  .field input,.field textarea{width:100%;font-family:var(--font-body);font-size:16px;padding:14px 15px;border:1.5px solid var(--line);border-radius:var(--radius-input);background:#fff;color:var(--black);transition:border-color .2s}
-  .field textarea{resize:vertical;min-height:84px}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--black)}
-  .field.err input,.field.err textarea{border-color:#c0392b}
-  .field .msg{font-size:13px;color:#c0392b;margin-top:6px;display:none}
-  .field.err .msg{display:block}
-  .form-card .btn{width:100%;justify-content:center;font-size:17px;padding:17px;margin-top:6px}
-  .form-note{font-size:13px;color:var(--graphite);margin-top:14px;text-align:center}
-  .form-success{display:none;text-align:center;padding:20px 0}
-  .form-success.show{display:block}
-  .form-success .chk{width:54px;height:54px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
-  .form-success h3{font-size:22px;font-weight:600;margin-bottom:8px}
-  .form-success p{font-size:16px;color:var(--graphite);margin:0 auto}
-
   /* ---------- FOOTER ---------- */
   footer.ft{background:var(--black);color:#9a948b;padding:40px 0 48px;border-top:1px solid var(--line-dark)}
   .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -653,7 +633,7 @@
       <a href="#proces">Proces</a>
       <a href="#rezultate">Rezultate</a>
       <a href="#despre">Despre fondator</a>
-      <a href="#contact">Contact</a>
+      <a data-tf-popup="AA5M88UV" style="cursor:pointer">Contact</a>
     </nav>
     <div class="nav-cta">
       <a data-tf-popup="AA5M88UV" class="btn btn-primary" style="cursor:pointer">Programează o discuție</a>
@@ -667,7 +647,7 @@
   <a href="#proces" data-close>Proces</a>
   <a href="#rezultate" data-close>Rezultate</a>
   <a href="#despre" data-close>Despre fondator</a>
-  <a href="#contact" data-close>Contact</a>
+  <a data-tf-popup="AA5M88UV" data-close style="cursor:pointer">Contact</a>
   <a data-tf-popup="AA5M88UV" class="btn btn-primary" data-close style="cursor:pointer">Programează o discuție</a>
 </div>
 
@@ -999,7 +979,7 @@
         <a href="#proces">Proces</a>
         <a href="#rezultate">Rezultate</a>
         <a href="#despre">Despre fondator</a>
-        <a href="#contact">Contact</a>
+        <a data-tf-popup="AA5M88UV" style="cursor:pointer">Contact</a>
       </nav>
     </div>
     <div class="ft-copy">© <span id="year"></span> VISION 360 · Strategie de business, marketing și vânzări · Fondatoare: Alisa Bălașa</div>
@@ -1275,71 +1255,6 @@
     });
   });
 
-  /* Form validation (demo) */
-  /* ===== Supabase config — completează cu valorile tale ===== */
-  var SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-  var SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
-  /* ========================================================== */
-
-  var form = document.getElementById('leadForm'), success = document.getElementById('formSuccess');
-  if(form){
-  var errBox = document.getElementById('formError');
-  var submitBtn = form.querySelector('button[type="submit"]');
-  function setErr(id, on){ document.getElementById(id).classList.toggle('err', on); }
-  function showError(msg){ errBox.textContent = msg; errBox.style.display = 'block'; }
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    errBox.style.display = 'none';
-    if(form.website.value){ return; } /* honeypot: bot detectat, ignoră */
-    var nume = form.nume.value.trim(),
-        email = form.email.value.trim(),
-        biz = form.biz.value.trim(),
-        ok = true;
-    var eok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    setErr('f-name', !nume); if(!nume) ok=false;
-    setErr('f-email', !eok); if(!eok) ok=false;
-    setErr('f-biz', !biz); if(!biz) ok=false;
-    if(!ok) return;
-
-    var btnHTML = submitBtn.innerHTML;
-    submitBtn.disabled = true; submitBtn.innerHTML = 'Se trimite…';
-
-    fetch(SUPABASE_URL + '/rest/v1/leads', {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        nume: nume,
-        email: email,
-        descriere_afacere: biz,
-        source: 'landing_vision360',
-        user_agent: navigator.userAgent
-      })
-    })
-    .then(function(res){
-      if(res.ok){
-        form.style.display='none'; success.classList.add('show');
-      } else {
-        submitBtn.disabled = false; submitBtn.innerHTML = btnHTML;
-        showError('A apărut o eroare la trimitere. Te rugăm să încerci din nou.');
-      }
-    })
-    .catch(function(){
-      submitBtn.disabled = false; submitBtn.innerHTML = btnHTML;
-      showError('Conexiune eșuată. Verifică internetul și încearcă din nou.');
-    });
-  });
-  ['nume','email','biz'].forEach(function(id){
-    form[id].addEventListener('input', function(){
-      var map={nume:'f-name',email:'f-email',biz:'f-biz'};
-      form[id].closest('.field').classList.remove('err');
-    });
-  });
-  }
 })();
 </script>
 <script src="//embed.typeform.com/next/embed.js"></script>
