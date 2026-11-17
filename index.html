@@ -230,6 +230,7 @@
   .results{padding-bottom:clamp(36px,4vw,56px)}
   .testi-sec{background:var(--black);color:var(--ivory);padding-top:clamp(48px,6vw,80px);padding-bottom:clamp(56px,7vw,96px)}
   .testi-sec .testi-title{color:var(--ivory)}
+  .testi-cta{margin-top:clamp(36px,4.5vw,52px);display:flex;justify-content:center}
   .proc{padding-top:clamp(28px,3vw,44px)}
   .proc-foot p{margin:0 auto 22px;font-family:var(--font-serif);font-style:italic;font-size:clamp(22px,3vw,30px);max-width:24ch;color:var(--black)}
 
@@ -302,21 +303,21 @@
 
   /* case studies */
   .results h2 .underline-y{white-space:nowrap}
-  .cs-feat{display:grid;grid-template-columns:.75fr 1.25fr;border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;background:#fff;margin-top:clamp(20px,2.4vw,30px)}
-  .cs-logo{position:relative;background:var(--anthracite);display:flex;align-items:center;justify-content:center;padding:56px 40px;min-height:320px}
-  .cs-logo img{width:clamp(200px,28vw,340px);height:auto;display:block;margin:0 auto;object-fit:contain}
+  .cs-feat{display:grid;grid-template-columns:.62fr 1.38fr;border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;background:#fff;margin-top:clamp(20px,2.4vw,30px)}
+  .cs-logo{position:relative;background:var(--anthracite);display:flex;align-items:center;justify-content:center;padding:26px 22px;min-height:190px}
+  .cs-logo img{width:clamp(130px,18vw,210px);height:auto;display:block;margin:0 auto;object-fit:contain}
   .cs-badge{position:absolute;top:18px;left:18px;background:var(--yellow);color:var(--black);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:5px}
   .cs-body{padding:clamp(26px,3.4vw,44px)}
   .cs-ind{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--graphite);font-weight:600;margin-bottom:12px}
   .cs-body h3{font-size:clamp(22px,2.6vw,30px);font-weight:600;letter-spacing:-.015em;line-height:1.15;margin-bottom:24px;max-width:24ch}
-  .cs-cols{display:grid;grid-template-columns:1fr 1.2fr;gap:22px}
+  .cs-cols{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}
   .cs-k{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:10px;color:var(--graphite)}
   .cs-after .cs-k{color:var(--black)}
   .cs-before ul,.cs-after ul{list-style:none}
-  .cs-before li{font-size:15px;color:var(--graphite);padding:8px 0 8px 16px;position:relative;line-height:1.45}
-  .cs-before li::before{content:"";position:absolute;left:0;top:16px;width:7px;height:1.5px;background:var(--graphite)}
-  .cs-after{background:var(--ivory);border-radius:8px;padding:16px 18px}
-  .cs-after li{display:flex;gap:10px;font-size:15px;line-height:1.45;padding:6px 0;color:var(--black)}
+  .cs-before li{font-size:14.5px;color:var(--graphite);padding:3px 0 3px 16px;position:relative;line-height:1.38}
+  .cs-before li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:1.5px;background:var(--graphite)}
+  .cs-after{background:var(--ivory);border-radius:8px;padding:11px 14px}
+  .cs-after li{display:flex;gap:9px;font-size:14.5px;line-height:1.38;padding:2.5px 0;color:var(--black)}
   .cs-after li svg{flex:none;width:16px;height:16px;margin-top:3px;color:var(--black);background:var(--yellow);border-radius:50%;padding:2px}
   .cs-res{display:flex;align-items:center;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:15.5px;color:var(--graphite)}
   .cs-res .cs-big+span{min-height:2.9em;display:flex;align-items:center}
@@ -334,10 +335,10 @@
   .cs-play svg{width:26px;height:26px;margin-left:3px}
   .cs-video:hover .cs-play{transform:scale(1.08)}
   .cs-vcap{font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--ivory)}
-  .cs-cbody{padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;flex:1}
-  .cs-cbody h3{font-size:clamp(19px,1.8vw,22px);font-weight:600;letter-spacing:-.01em;margin-bottom:12px}
+  .cs-cbody{padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;flex:1}
+  .cs-cbody h3{font-size:clamp(19px,1.8vw,22px);font-weight:600;letter-spacing:-.01em;margin-bottom:14px}
   .cs-cbody p{font-size:15.5px;color:var(--graphite);line-height:1.55}
-  .cs-cbody .cs-res{margin-top:auto;padding-top:18px}
+  .cs-cbody .cs-res{margin-top:18px;padding-top:14px}
   .cs-cbody p{margin-bottom:20px}
   .testi-title{font-family:var(--font-body);font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0 0 28px}
   @media(max-width:860px){
@@ -347,7 +348,7 @@
   }
 
   /* ---------- ETHIC ---------- */
-  .ethic{background:var(--ivory);text-align:center}
+  .ethic{background:var(--ivory);text-align:center;padding-bottom:clamp(34px,4vw,56px)}
   .ethic .wrap{max-width:920px}
   .ethic-label{display:block;margin-bottom:16px;font-size:12px}
   .ethic h2{font-family:var(--font-body);font-weight:600;font-size:clamp(30px,4.4vw,52px);line-height:1.1;letter-spacing:-.02em}
@@ -366,7 +367,7 @@
   .ethic-pt h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:2px 0 6px}
   .ethic-pt p{font-size:14.5px;color:var(--graphite);line-height:1.55}
   /* closing line on ivory */
-  .ethic-close{margin:clamp(48px,6vw,72px) auto 0;padding-top:clamp(32px,4vw,44px);border-top:1px solid var(--line);max-width:760px}
+  .ethic-close{margin:clamp(30px,4vw,46px) auto 0;padding-top:clamp(26px,3vw,36px);border-top:1px solid var(--line);max-width:760px}
   .ethic-close .eb-main{font-family:var(--font-serif);font-style:italic;font-size:clamp(23px,2.8vw,34px);line-height:1.3;color:var(--black)}
   .ethic-close .eb-main b{font-style:normal;font-family:var(--font-body);font-weight:600}
   .ethic-close .eb-sub{margin-top:14px;font-family:var(--font-body);font-size:16px;letter-spacing:0;text-transform:none;font-weight:600;color:var(--graphite);text-align:center}
@@ -580,8 +581,7 @@
   .rd-item.right .rd-dot::before{left:calc(100% + 3px)}
   .rd-item.active .rd-dot{border-color:var(--yellow)}
   .rd-item.active .rd-dot::before{background:var(--yellow)}
-  .services-cta{margin-top:clamp(48px,6vw,72px);display:flex;justify-content:center;opacity:.35;transform:translateY(14px) scale(.98);transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
-  .services-cta.active{opacity:1;transform:none}
+  .services-cta{margin-top:clamp(48px,6vw,72px);display:flex;justify-content:center}
   @media(max-width:900px){
     .hero-count{justify-self:start;max-width:none;margin-top:44px;display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:end}
     .hc-num{font-size:clamp(64px,17vw,96px)}
@@ -598,7 +598,7 @@
     .road::before{content:"";position:absolute;left:7px;top:16px;bottom:16px;width:2px;background:rgba(253,217,58,.3);z-index:0}
     .rd-item,.rd-item.left,.rd-item.right{width:100%;left:0;padding:0 0 0 36px;margin-top:14px;position:relative}
     .rd-item:first-child{margin-top:0}
-    .rd-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:var(--black);border:3px solid rgba(253,217,58,.28);z-index:2;transition:border-color .45s ease,background .45s ease}
+    .rd-item::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;background:var(--black);border:3px solid rgba(253,217,58,.28);z-index:2;transition:border-color .45s ease,background .45s ease}
     .rd-item.active::before{border-color:var(--yellow);background:var(--yellow)}
     .rd-card{flex-direction:row;align-items:flex-start;gap:12px;padding:13px 15px;border-radius:14px;box-shadow:0 5px 16px rgba(0,0,0,.2)}
     .rd-ic{width:38px;height:38px;border-radius:10px}
@@ -762,8 +762,8 @@
         </div>
       </div>
     </div>
-    <div class="services-cta" id="rdCta">
-      <a href="#contact" class="btn btn-primary">Solicită o discuție de clarificare <span class="arr">→</span></a>
+    <div class="services-cta reveal">
+      <a href="#contact" class="btn btn-primary">Programează o sesiune de audit <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -850,6 +850,9 @@
         </div>
       </article>
     </div>
+    <div class="testi-cta reveal">
+      <a href="#" class="btn btn-primary" data-typeform>Vreau să aplic sistemul VISION 360 <span class="arr">↗</span></a>
+    </div>
   </div>
 </section>
 
@@ -925,82 +928,6 @@
 </section>
 
 <!-- 08 NEXT STEPS -->
-<section class="next" id="pasul-urmator">
-  <div class="wrap next-grid">
-    <div class="next-left">
-      <h2 class="reveal d1">Ai construit o afacere care oferă servicii de calitate și există oameni care au nevoie de ceea ce oferi?</h2>
-      <div class="next-accent reveal d2">Hai să construim împreună strategia prin care ajungi la clienții potriviți!</div>
-    </div>
-    <div class="next-steps">
-      <div class="next-step reveal d1">
-        <div class="ns-n">01</div>
-        <div>
-          <div class="ns-t">Ne spui despre businessul tău.</div>
-          <div class="ns-d">Completezi un scurt formular despre situația actuală și ce vrei să construiești.</div>
-        </div>
-      </div>
-      <div class="next-step reveal d2">
-        <div class="ns-n">02</div>
-        <div>
-          <div class="ns-t">Alegi un moment pentru apel.</div>
-          <div class="ns-d">După formular, ajungi la calendarul de programări.</div>
-        </div>
-      </div>
-      <div class="next-step reveal d3">
-        <div class="ns-n">03</div>
-        <div>
-          <div class="ns-t">Vedem cum putem colabora.</div>
-          <div class="ns-d">Discutăm obiectivele, provocările și direcția potrivită afacerii tale.</div>
-        </div>
-      </div>
-      <div class="next-cta reveal d3">
-        <a href="#contact" class="btn btn-primary">Programează o consultanță
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="final on-dark" id="contact">
-  <div class="wrap final-grid">
-    <div>
-      <h2 class="final-q reveal d1">Ai construit o afacere care oferă servicii de calitate și există oameni care au nevoie de ceea ce oferi?</h2>
-      <p class="final-a reveal d2">Hai să construim împreună strategia prin care ajungi la <span class="serif-it">clienții potriviți!</span></p>
-    </div>
-    <div class="form-card reveal d1">
-      <form id="leadForm" novalidate>
-        <div class="fc-top">
-          <span class="t">Programează o discuție</span>
-        </div>
-        <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
-        <div class="field" id="f-name">
-          <label for="nume">Nume și prenume</label>
-          <input type="text" id="nume" name="nume" autocomplete="name" placeholder="Numele tău" />
-          <span class="msg">Te rugăm să completezi numele.</span>
-        </div>
-        <div class="field" id="f-email">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="adresa@email.com" />
-          <span class="msg">Introdu o adresă de email validă.</span>
-        </div>
-        <div class="field" id="f-biz">
-          <label for="biz">Cu ce se ocupă afacerea ta?</label>
-          <textarea id="biz" name="biz" placeholder="Pe scurt, despre afacerea ta"></textarea>
-          <span class="msg">Spune-ne câteva cuvinte despre afacerea ta.</span>
-        </div>
-        <button type="submit" class="btn btn-primary">Trimite solicitarea <span class="arr">→</span></button>
-        <p class="form-note" id="formError" style="display:none;color:#c0392b"></p>
-      </form>
-      <div class="form-success" id="formSuccess">
-        <div class="chk"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1D1D1D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3>Mulțumim!</h3>
-        <p>Într-o versiune live, solicitarea ta ar fi fost trimisă. (Stare demo)</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 09 FAQ -->
 <section class="faq">
   <div class="wrap faq-grid">
@@ -1137,8 +1064,7 @@
   /* Roadmap: wavy line + scroll progress */
   var road = document.getElementById('road');
   if(road){
-    var rdCta = document.getElementById('rdCta'),
-        rsvg = road.querySelector('.rd-svg'),
+    var rsvg = road.querySelector('.rd-svg'),
         rPaths = road.querySelectorAll('.rd-svg path'),
         rGlow = road.querySelector('.rd-glow'), rProg = road.querySelector('.rd-prog'),
         rItems = Array.prototype.slice.call(road.querySelectorAll('.rd-item')), rLen = 0;
@@ -1153,7 +1079,6 @@
         var top = it.getBoundingClientRect().top;
         it.classList.toggle('active', reduce || top + 40 < actMid);
       });
-      if(rdCta){ var ct = rdCta.getBoundingClientRect().top; rdCta.classList.toggle('active', reduce || ct + 40 < actMid); }
     }
     function rBuild(){
       var w = road.clientWidth, h = road.clientHeight;
@@ -1352,11 +1277,12 @@
 
   /* Form validation (demo) */
   /* ===== Supabase config — completează cu valorile tale ===== */
-  var SUPABASE_URL = "https://wdqshshgzoamykgfwccd.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_EphFcPK8JXb2uYkeXRCLpg_re3ij1HM";
+  var SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  var SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
   /* ========================================================== */
 
   var form = document.getElementById('leadForm'), success = document.getElementById('formSuccess');
+  if(form){
   var errBox = document.getElementById('formError');
   var submitBtn = form.querySelector('button[type="submit"]');
   function setErr(id, on){ document.getElementById(id).classList.toggle('err', on); }
@@ -1413,6 +1339,7 @@
       form[id].closest('.field').classList.remove('err');
     });
   });
+  }
 })();
 </script>
 </body>
